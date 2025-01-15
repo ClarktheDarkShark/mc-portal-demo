@@ -1,3 +1,5 @@
+// client/src/theme/usmcTheme.js
+
 import { createTheme } from '@mui/material/styles';
 
 const usmcTheme = createTheme({

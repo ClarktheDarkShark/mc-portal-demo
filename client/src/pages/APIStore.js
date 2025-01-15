@@ -1,3 +1,5 @@
+// cleantalk.org/api/apistore
+
 import React, { useEffect, useState } from 'react';
 
 function APIStore() {
@@ -11,22 +13,20 @@ function APIStore() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <div style={{ padding: '2rem' }}>
-        <h2>API Store</h2>
-        <ul>
-          {apis.map((api, idx) => (
-            <li key={idx}>
-              <strong>{api.name}</strong>  
-              <br />
-              Endpoint: {api.endpoint}  
-              <br />
-              {api.description}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </ThemeProvider>
+    <div style={{ padding: '2rem' }}>
+      <h2>API Store</h2>
+      <ul>
+        {apis.map((api, idx) => (
+          <li key={idx}>
+            <strong>{api.name}</strong>
+            <br />
+            Endpoint: {api.endpoint}
+            <br />
+            {api.description}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
