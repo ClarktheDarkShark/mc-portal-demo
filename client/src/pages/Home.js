@@ -1,5 +1,3 @@
-// client/src/pages/Home.js
-
 import React, { useState } from 'react';
 import {
   Box,
@@ -12,9 +10,11 @@ import {
   Fab,
   Drawer,
   IconButton,
+  Tooltip,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import ChatIcon from '@mui/icons-material/Chat';
+// Use SmartToyIcon for a modern, tech vibe
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import CloseIcon from '@mui/icons-material/Close';
 
 function Home() {
@@ -23,30 +23,28 @@ function Home() {
   const features = [
     {
       title: 'Data Repository',
-      description:
-        'Access a comprehensive collection of USMC data resources.',
+      description: 'Access a comprehensive collection of USMC data resources.',
       image: '/images/data-repo.jpg',
-      link: '/data-repository', // Link for Data Repository
+      link: '/data-repository',
     },
     {
       title: 'AI Repository',
-      description:
-        'Access a comprehensive collection of USMC AI resources.',
+      description: 'Access a comprehensive collection of USMC AI resources.',
       image: '/images/ai-repo.jpg',
-      link: '/ai-repository', // Link for Data Repository
+      link: '/ai-repository',
     },
     {
       title: 'Policy Documents',
       description: 'Stay updated with the latest data and AI policies.',
       image: '/images/policy-docs.jpg',
-      link: '/policy-docs', // Link for Policy Documents
+      link: '/policy-docs',
     },
     {
       title: 'IMDF Info',
       description:
         'Learn more about the Integrated Mission Data Fabric (IMDF) and how to participate.',
       image: '/images/imdf.jpg',
-      link: '/imdf', // Link for IMDF
+      link: '/imdf',
     },
   ];
 
@@ -90,8 +88,7 @@ function Home() {
             Welcome to the USMC Data & AI Portal
           </Typography>
           <Typography variant="h5" paragraph sx={{ fontWeight: 500 }}>
-            Your centralized hub for data, AI policies, and innovative solutions
-            to empower the Marine Corps.
+            Your centralized hub for data, AI policies, and innovative solutions to empower the Marine Corps.
           </Typography>
         </Container>
       </Box>
@@ -99,21 +96,15 @@ function Home() {
       {/* Features Section */}
       <Box sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
         <Container maxWidth="lg">
-          <Typography
-            variant="h4"
-            align="center"
-            gutterBottom
-            sx={{ fontWeight: 600 }}
-          >
+          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 600 }}>
             Our Features
           </Typography>
           <Typography variant="subtitle1" align="center" paragraph>
-            Explore the key features that make our portal indispensable for data
-            and AI initiatives.
+            Explore the key features that make our portal indispensable for data and AI initiatives.
           </Typography>
           <Grid container spacing={4}>
             {features.map((feature, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+              <Grid item xs={12} sm={6} md={3} key={index}>
                 <Link to={feature.link} style={{ textDecoration: 'none' }}>
                   <Card
                     sx={{
@@ -147,20 +138,30 @@ function Home() {
         </Container>
       </Box>
 
-      {/* Floating Action Button for Chat */}
-      <Fab
-        color="primary"
-        aria-label="chat"
-        onClick={toggleChat}
-        sx={{
-          position: 'fixed',
-          bottom: 16,
-          right: 16,
-          zIndex: 1300, // Ensure it appears above other content
-        }}
-      >
-        <ChatIcon />
-      </Fab>
+      {/* Floating Action Button for AI Chat */}
+      <Tooltip title="Talk to our AI Chat Assistant!" arrow>
+        <Fab
+          color="secondary"
+          aria-label="ai-chat"
+          onClick={toggleChat}
+          sx={{
+            position: 'fixed',
+            bottom: 16,
+            right: 16,
+            zIndex: 1300,
+            width: 70,
+            height: 70,
+            // Optional: gradient background for a modern look
+            background: 'linear-gradient(45deg, #00C6FB 30%, #005BEA 90%)',
+            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)',
+            '&:hover': {
+              background: 'linear-gradient(45deg, #009FDA 30%, #004EC2 90%)',
+            },
+          }}
+        >
+          <SmartToyIcon fontSize="large" />
+        </Fab>
+      </Tooltip>
 
       {/* Chat Drawer */}
       <Drawer
@@ -190,7 +191,7 @@ function Home() {
             title="Chat Assistant"
             style={{
               width: '100%',
-              height: 'calc(100vh - 150px)', // Adjust height as needed
+              height: 'calc(100vh - 150px)',
               border: 'none',
             }}
           ></iframe>
