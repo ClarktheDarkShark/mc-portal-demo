@@ -48,6 +48,13 @@ function Home() {
       image: '/images/imdf.jpg',
       link: '/imdf',
     },
+    {
+      title: 'API Store',
+      description:
+        'Discover and access a range of APIs for your development needs.',
+      image: '/images/api-icon.png', // Ensure this image exists
+      link: '/api-store',
+    },
   ];
 
   const toggleChat = () => {
@@ -60,7 +67,7 @@ function Home() {
       <Box
         sx={{
           position: 'relative',
-          backgroundImage: 'url(/images/hero-background.jpg)',
+          backgroundImage: 'url(/images/sdo.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#fff',
@@ -188,7 +195,7 @@ function Home() {
         >
           {/* Use the custom image as the chat icon */}
           <img
-            src="/images/aichat.png"
+            src="/images/aichat2.png"
             alt="AI Chat"
             style={{ width: '50%', height: '50%' }}
           />

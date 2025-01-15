@@ -1,7 +1,7 @@
 // client/src/components/Navbar.js
 
 import React from 'react';
-import { AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Navbar() {
@@ -9,86 +9,30 @@ function Navbar() {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: '#d32f2f', // USMC Red
+        backgroundImage: 'url(/images/hero-background.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        // Optional: If the image is busy, you can darken it:
+        // backgroundColor: 'rgba(0,0,0,0.5)',
+        // backgroundBlendMode: 'multiply',
       }}
     >
       <Toolbar>
-        {/* Home Link (Image version) */}
-        <Button
-          component={RouterLink}
-          to="/"
-          sx={{ p: 0, mr: 2 }}
-        >
-          <img
-            src="/images/home-icon.png"  // Ensure you have a home icon image, or use an alternative path
-            alt="Home"
-            style={{ height: '40px' }}
-          />
-        </Button>
-        
-        {/*
-        // Alternatively, if you prefer text, uncomment the following:
-        <Typography
-          variant="h6"
-          component={RouterLink}
-          to="/"
-          sx={{
-            textDecoration: 'none',
-            color: 'inherit',
-            mr: 2,
-          }}
-        >
-          Home
-        </Typography>
-        */}
-        
-        <Box sx={{ flexGrow: 1 }} />
-        {/* Navigation buttons with images */}
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button
+        <Box sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
             component={RouterLink}
-            to="/policy-docs"
-            sx={{ p: 0 }}
+            to="/"
+            sx={{
+              textDecoration: 'none',
+              color: 'inherit',
+              fontWeight: 700,
+              // Optional: Add text shadow for improved readability
+              textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)',
+            }}
           >
-            <img
-              src="/images/policy-icon.png"
-              alt="Policy Docs"
-              style={{ height: '40px' }}
-            />
-          </Button>
-          <Button
-            component={RouterLink}
-            to="/data-ai-repository"
-            sx={{ p: 0 }}
-          >
-            <img
-              src="/images/repository-icon.png"
-              alt="Data Repository"
-              style={{ height: '40px' }}
-            />
-          </Button>
-          <Button
-            component={RouterLink}
-            to="/chat"
-            sx={{ p: 0 }}
-          >
-            <img
-              src="/images/chat-icon.png"
-              alt="Chat Assistant"
-              style={{ height: '40px' }}
-            />
-          </Button>
-          <Button
-            component={RouterLink}
-            to="/api-store"
-            sx={{ p: 0 }}
-          >
-            <img
-              src="/images/api-icon.png"
-              alt="API Store"
-              style={{ height: '40px' }}
-            />
-          </Button>
+            USMC Data & AI Portal
+          </Typography>
         </Box>
       </Toolbar>
     </AppBar>
