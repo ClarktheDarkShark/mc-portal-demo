@@ -2,65 +2,67 @@
 
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    backgroundColor: '#d32f2f', // USMC Red
-  },
-  title: {
-    flexGrow: 1,
-    textDecoration: 'none',
-    color: '#fff',
-  },
-  button: {
-    marginLeft: theme.spacing(2),
-    color: '#fff',
-    textTransform: 'none',
-  },
-}));
-
 function Navbar() {
-  const classes = useStyles();
-
   return (
-    <AppBar position="static" className={classes.appBar}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: '#d32f2f', // USMC Red
+      }}
+    >
       <Toolbar>
-        <Typography 
-          variant="h6" 
-          component={RouterLink} 
-          to="/" 
-          className={classes.title}
+        <Typography
+          variant="h6"
+          component={RouterLink}
+          to="/"
+          sx={{
+            flexGrow: 1,
+            textDecoration: 'none',
+            color: '#fff',
+          }}
         >
           USMC AI Portal
         </Typography>
-        <Box>
-          <Button 
-            component={RouterLink} 
-            to="/policy-docs" 
-            className={classes.button}
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          <Button
+            component={RouterLink}
+            to="/policy-docs"
+            sx={{
+              color: '#fff',
+              textTransform: 'none',
+            }}
           >
             Policy Docs
           </Button>
-          <Button 
-            component={RouterLink} 
-            to="/data-ai-repository" 
-            className={classes.button}
+          <Button
+            component={RouterLink}
+            to="/data-ai-repository"
+            sx={{
+              color: '#fff',
+              textTransform: 'none',
+            }}
           >
             Data Repository
           </Button>
-          <Button 
-            component={RouterLink} 
-            to="/chat" 
-            className={classes.button}
+          <Button
+            component={RouterLink}
+            to="/chat"
+            sx={{
+              color: '#fff',
+              textTransform: 'none',
+            }}
           >
             Chat Assistant
           </Button>
-          <Button 
-            component={RouterLink} 
-            to="/api-store" 
-            className={classes.button}
+          <Button
+            component={RouterLink}
+            to="/api-store"
+            sx={{
+              color: '#fff',
+              textTransform: 'none',
+            }}
           >
             API Store
           </Button>
