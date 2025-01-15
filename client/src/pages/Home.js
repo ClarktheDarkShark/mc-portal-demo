@@ -16,7 +16,8 @@ function Home() {
   const features = [
     {
       title: 'Data Repository',
-      description: 'Access a comprehensive collection of USMC data and AI resources.',
+      description:
+        'Access a comprehensive collection of USMC data and AI resources.',
       image: '/images/data-repo.jpg',
       link: '/data-ai-repository', // Link for Data Repository
     },
@@ -28,7 +29,8 @@ function Home() {
     },
     {
       title: 'AI Assistant',
-      description: 'Interact with our ChatGPT-like assistant for support and inquiries.',
+      description:
+        'Interact with our ChatGPT-like assistant for support and inquiries.',
       image: '/images/ai-assistant.jpg',
       link: '/chat', // Link for AI Assistant
     },
@@ -36,9 +38,10 @@ function Home() {
 
   return (
     <Box>
-      {/* Hero Section */}
+      {/* Hero Section with Dark Overlay */}
       <Box
         sx={{
+          position: 'relative',
           backgroundImage: 'url(/images/hero-background.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -47,12 +50,30 @@ function Home() {
           textAlign: 'center',
         }}
       >
-        <Container maxWidth="md">
+        {/* Dark Overlay */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          }}
+        />
+        <Container
+          maxWidth="md"
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
           <Typography variant="h2" gutterBottom sx={{ fontWeight: 700 }}>
             Welcome to the USMC Data & AI Portal
           </Typography>
           <Typography variant="h5" paragraph sx={{ fontWeight: 500 }}>
-            Your centralized hub for data, AI policies, and innovative solutions to empower the Marine Corps.
+            Your centralized hub for data, AI policies, and innovative solutions
+            to empower the Marine Corps.
           </Typography>
         </Container>
       </Box>
@@ -60,11 +81,17 @@ function Home() {
       {/* Features Section */}
       <Box sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 600 }}>
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: 600 }}
+          >
             Our Features
           </Typography>
           <Typography variant="subtitle1" align="center" paragraph>
-            Explore the key features that make our portal indispensable for data and AI initiatives.
+            Explore the key features that make our portal indispensable for data
+            and AI initiatives.
           </Typography>
           <Grid container spacing={4}>
             {features.map((feature, index) => (
@@ -99,6 +126,30 @@ function Home() {
               </Grid>
             ))}
           </Grid>
+        </Container>
+      </Box>
+
+      {/* Chat Window Section */}
+      <Box sx={{ py: 4, backgroundColor: '#e0e0e0', textAlign: 'center' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
+            Chat Assistant
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Use the chat window below to connect with our assistant.
+          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <iframe
+              src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
+              title="Chat Assistant"
+              style={{
+                width: '100%',
+                maxWidth: '800px',
+                height: '600px',
+                border: 'none',
+              }}
+            ></iframe>
+          </Box>
         </Container>
       </Box>
     </Box>
