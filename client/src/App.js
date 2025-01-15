@@ -3,7 +3,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import usmcTheme from './theme/usmcTheme'; // Import the custom theme
 
 import Home from './pages/Home';
 import PolicyDocs from './pages/PolicyDocs';
@@ -14,28 +14,9 @@ import APIStore from './pages/APIStore';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Create a custom theme
-const theme = createTheme({
-  spacing: 8, // Default spacing unit
-  palette: {
-    primary: {
-      main: '#004080', // USMC blue
-    },
-    secondary: {
-      main: '#A81D24', // USMC red
-    },
-  },
-  typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
-    h4: {
-      fontWeight: 600,
-    },
-  },
-});
-
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={usmcTheme}>
       <CssBaseline /> {/* Normalize CSS across browsers */}
       <Router>
         <Navbar />
