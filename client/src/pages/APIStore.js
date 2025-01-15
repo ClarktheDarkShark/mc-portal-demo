@@ -11,20 +11,22 @@ function APIStore() {
   }, []);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>API Store</h2>
-      <ul>
-        {apis.map((api, idx) => (
-          <li key={idx}>
-            <strong>{api.name}</strong>  
-            <br />
-            Endpoint: {api.endpoint}  
-            <br />
-            {api.description}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ padding: '2rem' }}>
+        <h2>API Store</h2>
+        <ul>
+          {apis.map((api, idx) => (
+            <li key={idx}>
+              <strong>{api.name}</strong>  
+              <br />
+              Endpoint: {api.endpoint}  
+              <br />
+              {api.description}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </ThemeProvider>
   );
 }
 

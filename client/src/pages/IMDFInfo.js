@@ -13,16 +13,18 @@ function IMDFInfo() {
   if (!info) return <div>Loading...</div>;
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Integrated Mission Data Fabric (IMDF)</h2>
-      <p>{info.description}</p>
-      <h3>How to Participate</h3>
-      <ul>
-        {info.participation_steps.map((step, idx) => (
-          <li key={idx}>{step}</li>
-        ))}
-      </ul>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ padding: '2rem' }}>
+        <h2>Integrated Mission Data Fabric (IMDF)</h2>
+        <p>{info.description}</p>
+        <h3>How to Participate</h3>
+        <ul>
+          {info.participation_steps.map((step, idx) => (
+            <li key={idx}>{step}</li>
+          ))}
+        </ul>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -11,16 +11,18 @@ function PolicyDocs() {
   }, []);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Data & AI Policy Documents</h2>
-      <ul>
-        {policies.map((doc, index) => (
-          <li key={index}>
-            <strong>{doc.title}</strong> - {doc.description}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ padding: '2rem' }}>
+        <h2>Data & AI Policy Documents</h2>
+        <ul>
+          {policies.map((doc, index) => (
+            <li key={index}>
+              <strong>{doc.title}</strong> - {doc.description}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </ThemeProvider>
   );
 }
 
