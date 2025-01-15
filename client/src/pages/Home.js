@@ -38,30 +38,6 @@ function Home() {
 
   return (
     <Box>
-      {/* Chat Window Section */}
-      <Box sx={{ py: 4, backgroundColor: '#e0e0e0', textAlign: 'center' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
-            Chat Assistant
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Use the chat window below to connect with our assistant.
-          </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <iframe
-              src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
-              title="Chat Assistant"
-              style={{
-                width: '100%',
-                maxWidth: '800px',
-                height: '600px',
-                border: 'none',
-              }}
-            ></iframe>
-          </Box>
-        </Container>
-      </Box>
-
       {/* Hero Section with Dark Overlay */}
       <Box
         sx={{
@@ -99,6 +75,30 @@ function Home() {
             Your centralized hub for data, AI policies, and innovative solutions
             to empower the Marine Corps.
           </Typography>
+        </Container>
+      </Box>
+
+      {/* Chat Window Section */}
+      <Box sx={{ py: 4, backgroundColor: '#e0e0e0', textAlign: 'center' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
+            Chat Assistant
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Use the chat window below to connect with our assistant.
+          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <iframe
+              src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
+              title="Chat Assistant"
+              style={{
+                width: '100%',
+                maxWidth: '800px',
+                height: '400px',
+                border: 'none',
+              }}
+            ></iframe>
+          </Box>
         </Container>
       </Box>
 
