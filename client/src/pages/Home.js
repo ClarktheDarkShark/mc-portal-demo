@@ -155,11 +155,11 @@ function Home() {
           onClick={toggleChat}
           sx={{
             position: 'fixed',
-            bottom: 16,
+            bottom: 70,
             right: 16,
             zIndex: 1300,
-            width: 70,
-            height: 70,
+            width: 80,
+            height: 80,
             background: 'linear-gradient(45deg, #00C6FB 30%, #005BEA 90%)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)',
             '&:hover': {
