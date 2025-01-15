@@ -4,7 +4,7 @@ import os
 
 # Import Blueprints from your routes
 from .routes.policy_docs import policy_docs_bp
-from .routes.repository_catalog import repository_catalog_bp
+from .routes.repository_catalog import repository_catalog_bp  # This now contains /data and /ai routes
 from .routes.api_store import api_store_bp
 from .routes.imdf import imdf_bp
 
@@ -21,11 +21,12 @@ app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_frontend(path):
-    # Build the absolute path for the requested file
+    # Build the absolute path for the requested file from the build folder
     file_path = os.path.join(app.static_folder, path)
     if path != "" and os.path.exists(file_path):
         return send_from_directory(app.static_folder, path)
     else:
+        # If the file doesn't exist, serve index.html so React Router can handle the route
         return send_from_directory(app.static_folder, "index.html")
 
 if __name__ == "__main__":

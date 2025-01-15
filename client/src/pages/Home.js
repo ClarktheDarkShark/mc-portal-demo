@@ -24,9 +24,16 @@ function Home() {
     {
       title: 'Data Repository',
       description:
-        'Access a comprehensive collection of USMC data and AI resources.',
+        'Access a comprehensive collection of USMC data resources.',
       image: '/images/data-repo.jpg',
-      link: '/data-ai-repository', // Link for Data Repository
+      link: '/data-repository', // Link for Data Repository
+    },
+    {
+      title: 'AI Repository',
+      description:
+        'Access a comprehensive collection of USMC AI resources.',
+      image: '/images/ai-repo.jpg',
+      link: '/ai-repository', // Link for Data Repository
     },
     {
       title: 'Policy Documents',
