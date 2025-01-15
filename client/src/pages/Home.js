@@ -36,6 +36,13 @@ function Home() {
       link: '/ai-repository',
     },
     {
+      title: 'Enterprise AI Registry',
+      description:
+        'Submit and browse USMC AI Use Cases.',
+      image: '/images/ai-registry.png', // Ensure this image exists
+      link: '/ai-registry',
+    },
+    {
       title: 'Policy Documents',
       description: 'Stay updated with the latest data and AI policies.',
       image: '/images/policy-docs.jpg',

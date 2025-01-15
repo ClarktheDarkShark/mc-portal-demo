@@ -27,6 +27,7 @@ function App() {
           <Route path="/policy-docs" element={<PolicyDocs />} />
           <Route path="/data-repository" element={<DataCatalogue />} />
           <Route path="/ai-repository" element={<AICatalogue />} />
+          <Route path="/ai-registry" element={<EnterpriseAIRegistry />} />
           <Route path="/chat" element={<ChatGPTLike />} />
           <Route path="/imdf" element={<IMDFInfo />} />
           {/* Add more routes as needed */}

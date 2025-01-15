@@ -9,6 +9,7 @@ from .routes.policy_docs import policy_docs_bp
 from .routes.repository_catalog import repository_catalog_bp  # This now contains /data and /ai routes
 from .routes.api_store import api_store_bp
 from .routes.imdf import imdf_bp
+from .routes.enterprise_ai_registry import enterprise_ai_registry_bp
 
 
 app = Flask(__name__, static_folder="../client/build", static_url_path="/")
@@ -19,6 +20,7 @@ app.register_blueprint(policy_docs_bp, url_prefix="/api/policy")
 app.register_blueprint(repository_catalog_bp, url_prefix="/api/repository")
 app.register_blueprint(api_store_bp, url_prefix="/api/apistore")
 app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
+app.register_blueprint(enterprise_ai_registry_bp, url_prefix="/api/ai-registry")
 
 
 # Serve React front-end
