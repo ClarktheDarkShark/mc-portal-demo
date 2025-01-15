@@ -84,14 +84,33 @@ function Home() {
           sx={{
             position: 'relative',
             zIndex: 1,
+            textAlign: 'center',
+            padding: '2rem',
           }}
         >
-          <Typography variant="h2" gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography
+            variant="h2"
+            gutterBottom
+            sx={{
+              fontWeight: 700,
+              color: '#fff',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+              mb: 2,
+            }}
+          >
             Welcome to the USMC Data & AI Portal
           </Typography>
-          <Typography variant="h5" paragraph sx={{ fontWeight: 500 }}>
-            Your centralized hub for data, AI policies, and innovative solutions
-            to empower the Marine Corps.
+          <Typography
+            variant="h5"
+            paragraph
+            sx={{
+              fontWeight: 500,
+              color: '#fff',
+              textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)',
+              lineHeight: 1.4,
+            }}
+          >
+            Your centralized hub for data, AI policies, and innovative solutions to empower the Marine Corps.
           </Typography>
         </Container>
       </Box>
@@ -155,11 +174,11 @@ function Home() {
           onClick={toggleChat}
           sx={{
             position: 'fixed',
-            bottom: 70,
+            bottom: 90,
             right: 16,
             zIndex: 1300,
-            width: 80,
-            height: 80,
+            width: 90,
+            height: 90,
             background: 'linear-gradient(45deg, #00C6FB 30%, #005BEA 90%)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)',
             '&:hover': {
