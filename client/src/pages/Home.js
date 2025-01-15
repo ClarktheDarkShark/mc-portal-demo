@@ -1,6 +1,6 @@
 // client/src/pages/Home.js
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -9,10 +9,17 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Fab,
+  Drawer,
+  IconButton,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ChatIcon from '@mui/icons-material/Chat';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Home() {
+  const [openChat, setOpenChat] = useState(false);
+
   const features = [
     {
       title: 'Data Repository',
@@ -35,6 +42,10 @@ function Home() {
       link: '/chat', // Link for AI Assistant
     },
   ];
+
+  const toggleChat = () => {
+    setOpenChat(!openChat);
+  };
 
   return (
     <Box>
@@ -77,7 +88,6 @@ function Home() {
           </Typography>
         </Container>
       </Box>
-
 
       {/* Features Section */}
       <Box sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
@@ -128,31 +138,57 @@ function Home() {
             ))}
           </Grid>
         </Container>
+      </Box>
 
-      </Box>
-      {/* Chat Window Section */}
-      <Box sx={{ py: 4, backgroundColor: '#e0e0e0', textAlign: 'center' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
-            Chat Assistant
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Use the chat window below to connect with our assistant.
-          </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <iframe
-              src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
-              title="Chat Assistant"
-              style={{
-                width: '100%',
-                maxWidth: '800px',
-                height: '500px',
-                border: 'none',
-              }}
-            ></iframe>
-          </Box>
-        </Container>
-      </Box>
+      {/* Floating Action Button for Chat */}
+      <Fab
+        color="primary"
+        aria-label="chat"
+        onClick={toggleChat}
+        sx={{
+          position: 'fixed',
+          bottom: 16,
+          right: 16,
+          zIndex: 1300, // Ensure it appears above other content
+        }}
+      >
+        <ChatIcon />
+      </Fab>
+
+      {/* Chat Drawer */}
+      <Drawer
+        anchor="right"
+        open={openChat}
+        onClose={toggleChat}
+        PaperProps={{
+          sx: { width: { xs: '100%', sm: '400px' }, p: 2 },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mb: 2,
+          }}
+        >
+          <Typography variant="h6">Chat Assistant</Typography>
+          <IconButton onClick={toggleChat}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Box>
+          <iframe
+            src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
+            title="Chat Assistant"
+            style={{
+              width: '100%',
+              height: 'calc(100vh - 150px)', // Adjust height as needed
+              border: 'none',
+            }}
+          ></iframe>
+        </Box>
+      </Drawer>
     </Box>
   );
 }
