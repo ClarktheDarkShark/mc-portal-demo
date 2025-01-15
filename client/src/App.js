@@ -15,8 +15,6 @@ import ChatGPTLike from './pages/ChatGPTLike';
 import IMDFInfo from './pages/IMDFInfo';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import DataCatalogue from './pages/DataCatalogue';  // For data-repository
-import AICatalogue from './pages/AICatalogue';        // For ai-repository
 
 function App() {
   return (
@@ -27,8 +25,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/policy-docs" element={<PolicyDocs />} />
-          <Route path="/data" element={<DataCatalogue />} />
-          <Route path="/ai" element={<AICatalogue />} />
+          <Route path="/data-repository" element={<DataCatalogue />} />
+          <Route path="/ai-repository" element={<AICatalogue />} />
           <Route path="/chat" element={<ChatGPTLike />} />
           <Route path="/imdf" element={<IMDFInfo />} />
           {/* Add more routes as needed */}
