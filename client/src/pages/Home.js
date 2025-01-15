@@ -195,7 +195,7 @@ function Home() {
         >
           {/* Use the custom image as the chat icon */}
           <img
-            src="/images/aichat3.png"
+            src="/images/aichat2.png"
             alt="AI Chat"
             style={{ width: '70%', height: '70%' }}
           />
