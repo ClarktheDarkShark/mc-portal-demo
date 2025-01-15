@@ -15,6 +15,7 @@ import ChatGPTLike from './pages/ChatGPTLike';
 import IMDFInfo from './pages/IMDFInfo';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import EnterpriseAIRegistry from './pages/EnterpriseAIRegistry';
 
 function App() {
   return (
