@@ -43,17 +43,17 @@ function Home() {
       link: '/ai-registry',
     },
     {
-      title: 'Policy Documents',
-      description: 'Stay updated with the latest data and AI policies.',
-      image: '/images/policy-docs.jpg',
-      link: '/policy-docs',
-    },
-    {
       title: 'IMDF',
       description:
         'Learn more about the Integrated Mission Data Fabric (IMDF) and how to participate.',
       image: '/images/imdf.jpg',
       link: '/imdf',
+    },
+    {
+      title: 'Policy Documents',
+      description: 'Stay updated with the latest data and AI policies.',
+      image: '/images/policy-docs.jpg',
+      link: '/policy-docs',
     },
     {
       title: 'API Store',
