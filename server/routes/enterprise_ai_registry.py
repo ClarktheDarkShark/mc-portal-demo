@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify
 # Create a blueprint for the Enterprise AI Registry
 enterprise_ai_registry_bp = Blueprint("enterprise_ai_registry_bp", __name__)
 
-@enterprise_ai_registry_bp.route("/airegistry", methods=["GET"])
+@enterprise_ai_registry_bp.route("/ai-registry", methods=["GET"])
 def get_enterprise_ai_registry():
     # Mock response for the Enterprise AI Registry
     registry_info = {
