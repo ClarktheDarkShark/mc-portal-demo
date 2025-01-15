@@ -18,7 +18,7 @@ function EnterpriseAIRegistry() {
 
   useEffect(() => {
     // Fetch the registry info
-    fetch('/api/enterprise-ai-registry')
+    fetch('/api/ai-registry')
       .then((res) => res.json())
       .then((data) => {
         setRegistry(data.registryInfo);
