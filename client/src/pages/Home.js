@@ -1,3 +1,5 @@
+// client/src/pages/Home.js
+
 import React, { useState } from 'react';
 import {
   Box,
@@ -13,8 +15,6 @@ import {
   Tooltip,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-// Use SmartToyIcon for a modern, tech vibe
-import SmartToyIcon from '@mui/icons-material/SmartToy';
 import CloseIcon from '@mui/icons-material/Close';
 
 function Home() {
@@ -23,13 +23,15 @@ function Home() {
   const features = [
     {
       title: 'Data Repository',
-      description: 'Access a comprehensive collection of USMC data resources.',
+      description:
+        'Access a comprehensive collection of USMC data resources.',
       image: '/images/data-repo.jpg',
       link: '/data-repository',
     },
     {
       title: 'AI Repository',
-      description: 'Access a comprehensive collection of USMC AI resources.',
+      description:
+        'Access a comprehensive collection of USMC AI resources.',
       image: '/images/ai-repo.jpg',
       link: '/ai-repository',
     },
@@ -88,7 +90,8 @@ function Home() {
             Welcome to the USMC Data & AI Portal
           </Typography>
           <Typography variant="h5" paragraph sx={{ fontWeight: 500 }}>
-            Your centralized hub for data, AI policies, and innovative solutions to empower the Marine Corps.
+            Your centralized hub for data, AI policies, and innovative solutions
+            to empower the Marine Corps.
           </Typography>
         </Container>
       </Box>
@@ -96,11 +99,17 @@ function Home() {
       {/* Features Section */}
       <Box sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 600 }}>
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: 600 }}
+          >
             Our Features
           </Typography>
           <Typography variant="subtitle1" align="center" paragraph>
-            Explore the key features that make our portal indispensable for data and AI initiatives.
+            Explore the key features that make our portal indispensable for data
+            and AI initiatives.
           </Typography>
           <Grid container spacing={4}>
             {features.map((feature, index) => (
@@ -138,7 +147,7 @@ function Home() {
         </Container>
       </Box>
 
-      {/* Floating Action Button for AI Chat */}
+      {/* Floating Action Button for Chat with Custom Image */}
       <Tooltip title="Talk to our AI Chat Assistant!" arrow>
         <Fab
           color="secondary"
@@ -151,7 +160,6 @@ function Home() {
             zIndex: 1300,
             width: 70,
             height: 70,
-            // Optional: gradient background for a modern look
             background: 'linear-gradient(45deg, #00C6FB 30%, #005BEA 90%)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)',
             '&:hover': {
@@ -159,7 +167,12 @@ function Home() {
             },
           }}
         >
-          <SmartToyIcon fontSize="large" />
+          {/* Use the custom image as the chat icon */}
+          <img
+            src="/images/aichat.png"
+            alt="AI Chat"
+            style={{ width: '50%', height: '50%' }}
+          />
         </Fab>
       </Tooltip>
 
