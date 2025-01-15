@@ -24,19 +24,6 @@ app.register_blueprint(api_store_bp, url_prefix="/api/apistore")
 app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
 app.register_blueprint(enterprise_ai_registry_bp, url_prefix="/api/ai-registry")
 
-
-# Serve React front-end
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def serve_frontend(path):
-    # Build the absolute path for the requested file from the build folder
-    file_path = os.path.join(app.static_folder, path)
-    if path != "" and os.path.exists(file_path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        # If the file doesn't exist, serve index.html so React Router can handle the route
-        return send_from_directory(app.static_folder, "index.html")
-
 def wake_up_heroku_app():
     """
     Function to send a GET request to the Heroku app to wake it up.
@@ -48,13 +35,18 @@ def wake_up_heroku_app():
     except requests.RequestException as e:
         app.logger.error(f"Error waking up Heroku app: {e}")
 
-@app.route('/')
-def home():
-    """
-    Main route that triggers the Heroku app wake-up on visit.
-    """
-    wake_up_heroku_app()  # Wake up the Heroku app
-    return jsonify({"message": "Welcome to the site! Heroku app has been woken up."})
+# Serve React front-end
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_frontend(path):
+    wake_up_heroku_app()
+    # Build the absolute path for the requested file from the build folder
+    file_path = os.path.join(app.static_folder, path)
+    if path != "" and os.path.exists(file_path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        # If the file doesn't exist, serve index.html so React Router can handle the route
+        return send_from_directory(app.static_folder, "index.html")
 
     
 if __name__ == "__main__":

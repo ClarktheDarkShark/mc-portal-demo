@@ -9,7 +9,7 @@ def get_enterprise_ai_registry():
     registry_info = {
         "name": "Enterprise AI Registry",
         "description": "A centralized platform to explore and manage AI assets.",
-        "link": "https://example.com/enterprise-ai-registry",
+        "link": "https://example.com/ai-registry",
     }
 
     # Mock data for AI projects
