@@ -161,7 +161,7 @@ function Home() {
         open={openChat}
         onClose={toggleChat}
         PaperProps={{
-          sx: { width: { xs: '100%', sm: '400px' }, p: 2 },
+          sx: { width: { xs: '100%', sm: '500px' }, p: 2 },
         }}
       >
         <Box
