@@ -24,11 +24,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/policy-docs" element={<PolicyDocs />} />
-          <Route path="/data-ai-repository" element={<DataAIRepository />} />
           <Route path="/chat" element={<ChatGPTLike />} />
-          <Route path="/imdf" element={<IMDFInfo />} />
           <Route path="/api-store" element={<APIStore />} />
-          {/* Add more routes as needed */}
+          <Route path="/data" element={<DataCatalogue />} />
+          <Route path="/ai" element={<AICatalogue />} />
+          <Route path="/imdf" element={<IMDFInfo />} />
         </Routes>
         <Footer />
       </Router>
