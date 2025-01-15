@@ -15,6 +15,8 @@ app.register_blueprint(policy_docs_bp, url_prefix="/api/policy")
 app.register_blueprint(repository_catalog_bp, url_prefix="/api/repository")
 app.register_blueprint(api_store_bp, url_prefix="/api/apistore")
 app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
+app.register_blueprint(imdf_bp, url_prefix="/api/repository/data")
+app.register_blueprint(imdf_bp, url_prefix="/api/repository/ai")
 
 # Serve React front-end
 @app.route("/", defaults={"path": ""})
