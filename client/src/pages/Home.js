@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Box,
-  Button,
   Container,
   Grid,
   Typography,
@@ -9,24 +8,27 @@ import {
   CardContent,
   CardMedia,
 } from '@mui/material';
-import { ArrowForward } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const features = [
     {
       title: 'Data Repository',
       description: 'Access a comprehensive collection of USMC data and AI resources.',
-      image: '/images/data-repo.jpg', // Add images in public/images/
+      image: '/images/data-repo.jpg',
+      link: '/data-ai-repository', // Link for Data Repository
     },
     {
       title: 'Policy Documents',
       description: 'Stay updated with the latest data and AI policies.',
       image: '/images/policy-docs.jpg',
+      link: '/policy-docs', // Link for Policy Documents
     },
     {
       title: 'AI Assistant',
       description: 'Interact with our ChatGPT-like assistant for support and inquiries.',
       image: '/images/ai-assistant.jpg',
+      link: '/chat', // Link for AI Assistant
     },
   ];
 
@@ -35,7 +37,7 @@ function Home() {
       {/* Hero Section */}
       <Box
         sx={{
-          backgroundImage: 'url(/images/hero-background.jpg)', // Add a background image in public/images/
+          backgroundImage: 'url(/images/hero-background.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#fff',
@@ -50,19 +52,6 @@ function Home() {
           <Typography variant="h5" paragraph sx={{ fontWeight: 500 }}>
             Your centralized hub for data, AI policies, and innovative solutions to empower the Marine Corps.
           </Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            endIcon={<ArrowForward />}
-            href="/policy-docs"
-            sx={{
-              mt: 2,
-              px: 4,
-            }}
-          >
-            Get Started
-          </Button>
         </Container>
       </Box>
 
@@ -78,31 +67,33 @@ function Home() {
           <Grid container spacing={4}>
             {features.map((feature, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card
-                  sx={{
-                    maxWidth: 345,
-                    margin: 'auto',
-                    transition: 'transform 0.3s',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                    },
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={feature.image}
-                    alt={feature.title}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {feature.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {feature.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
+                <Link to={feature.link} style={{ textDecoration: 'none' }}>
+                  <Card
+                    sx={{
+                      maxWidth: 345,
+                      margin: 'auto',
+                      transition: 'transform 0.3s',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={feature.image}
+                      alt={feature.title}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {feature.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {feature.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Link>
               </Grid>
             ))}
           </Grid>
