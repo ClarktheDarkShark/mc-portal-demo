@@ -9,11 +9,11 @@ function Navbar() {
     <AppBar
       position="static"
       sx={{
-        backgroundImage: 'url(/images/hero-background.jpg)',
+        backgroundImage: 'url(/images/header.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         // Optional: If the image is busy, you can darken it:
-        backgroundColor: 'rgb(71, 0, 0)',
+        backgroundColor: 'rgba(0, 0, 0, 0.54)',
         backgroundBlendMode: 'multiply',
       }}
     >
