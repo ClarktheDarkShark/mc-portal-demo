@@ -1,7 +1,7 @@
 // client/src/components/Navbar.js
 
 import React from 'react';
-import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Navbar() {
@@ -13,14 +13,42 @@ function Navbar() {
       }}
     >
       <Toolbar>
-        {/* Remove any left-side branding text or links */}
+        {/* Home Link (Image version) */}
+        <Button
+          component={RouterLink}
+          to="/"
+          sx={{ p: 0, mr: 2 }}
+        >
+          <img
+            src="/images/home-icon.png"  // Ensure you have a home icon image, or use an alternative path
+            alt="Home"
+            style={{ height: '40px' }}
+          />
+        </Button>
+        
+        {/*
+        // Alternatively, if you prefer text, uncomment the following:
+        <Typography
+          variant="h6"
+          component={RouterLink}
+          to="/"
+          sx={{
+            textDecoration: 'none',
+            color: 'inherit',
+            mr: 2,
+          }}
+        >
+          Home
+        </Typography>
+        */}
+        
         <Box sx={{ flexGrow: 1 }} />
         {/* Navigation buttons with images */}
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button
             component={RouterLink}
             to="/policy-docs"
-            sx={{ p: 0 }} // Remove extra padding so the image fits nicely
+            sx={{ p: 0 }}
           >
             <img
               src="/images/policy-icon.png"
