@@ -2,11 +2,36 @@ from flask import Blueprint, jsonify
 
 repository_catalog_bp = Blueprint("repository_catalog_bp", __name__)
 
-@repository_catalog_bp.route("/", methods=["GET"])
-def get_repository_catalog():
-    # Return a mock repository or data catalog
-    catalog = [
-        {"name": "Data Set 1", "link": "https://example.com/data1", "description": "Sample data set #1"},
-        {"name": "Data Set 2", "link": "https://example.com/data2", "description": "Sample data set #2"}
+# Data Catalogue Endpoint
+@repository_catalog_bp.route("/data", methods=["GET"])
+def get_data_catalog():
+    data_catalog = [
+        {
+            "name": "Marine Corps Reports",
+            "link": "https://example.com/data-reports",
+            "description": "Comprehensive data reports for Marine Corps operations."
+        },
+        {
+            "name": "Climate Impact Data",
+            "link": "https://example.com/climate-data",
+            "description": "Data on climate impacts affecting military operations."
+        }
     ]
-    return jsonify(catalog)
+    return jsonify(data_catalog)
+
+# AI Catalogue Endpoint
+@repository_catalog_bp.route("/ai", methods=["GET"])
+def get_ai_catalog():
+    ai_catalog = [
+        {
+            "name": "Model Repository",
+            "link": "https://example.com/model-repo",
+            "description": "Access machine learning models for predictive analytics."
+        },
+        {
+            "name": "AI Toolkits",
+            "link": "https://example.com/ai-toolkits",
+            "description": "Toolkits for building and deploying AI solutions."
+        }
+    ]
+    return jsonify(ai_catalog)

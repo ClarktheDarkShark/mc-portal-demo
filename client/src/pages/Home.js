@@ -35,11 +35,11 @@ function Home() {
       link: '/policy-docs', // Link for Policy Documents
     },
     {
-      title: 'AI Assistant',
+      title: 'IMDF Info',
       description:
-        'Interact with our ChatGPT-like assistant for support and inquiries.',
-      image: '/images/ai-assistant.jpg',
-      link: '/chat', // Link for AI Assistant
+        'Learn more about the Integrated Mission Data Fabric (IMDF) and how to participate.',
+      image: '/images/imdf.jpg',
+      link: '/imdf', // Link for IMDF
     },
   ];
 

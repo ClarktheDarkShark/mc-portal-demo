@@ -1,25 +1,47 @@
-// client/src/pages/DataAIRepository.js
-
 import React, { useEffect, useState } from 'react';
 
 function DataAIRepository() {
-  const [catalog, setCatalog] = useState([]);
+  const [dataCatalogue, setDataCatalogue] = useState([]);
+  const [aiCatalogue, setAICatalogue] = useState([]);
 
   useEffect(() => {
-    fetch('/api/repository')
+    // Fetch Data Catalogue
+    fetch('/api/repository/data')
       .then((res) => res.json())
-      .then((data) => setCatalog(data))
-      .catch((err) => console.error(err));
+      .then((data) => setDataCatalogue(data))
+      .catch((err) => console.error('Error fetching Data Catalogue:', err));
+
+    // Fetch AI Catalogue
+    fetch('/api/repository/ai')
+      .then((res) => res.json())
+      .then((data) => setAICatalogue(data))
+      .catch((err) => console.error('Error fetching AI Catalogue:', err));
   }, []);
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h2>Data and AI Repository</h2>
+      {/* Data Catalogue Section */}
+      <h2>Data Catalogue</h2>
       <ul>
-        {catalog.map((item, idx) => (
+        {dataCatalogue.map((item, idx) => (
           <li key={idx}>
             <strong>{item.name}</strong> - {item.description}{' '}
-            <a href={item.link} target="_blank" rel="noopener noreferrer">[Link]</a>
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              [Link]
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {/* AI Catalogue Section */}
+      <h2>AI Catalogue</h2>
+      <ul>
+        {aiCatalogue.map((item, idx) => (
+          <li key={idx}>
+            <strong>{item.name}</strong> - {item.description}{' '}
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              [Link]
+            </a>
           </li>
         ))}
       </ul>
