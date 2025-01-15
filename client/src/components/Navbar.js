@@ -13,8 +13,8 @@ function Navbar() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         // Optional: If the image is busy, you can darken it:
-        // backgroundColor: 'rgba(0,0,0,0.5)',
-        // backgroundBlendMode: 'multiply',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundBlendMode: 'multiply',
       }}
     >
       <Toolbar>
