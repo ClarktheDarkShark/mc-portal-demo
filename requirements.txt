@@ -1,6 +1,12 @@
-Flask
-gunicorn
-requests
+Flask==3.0.3
+flask_migrate==4.0.7
+flask_sqlalchemy==3.1.1
+Flask-Session==0.8.0 
+flask-socketio==5.5.0
+flask_cors==4.0.0
+gunicorn==23.0.0
+requests==2.32.3
+requests-oauthlib==2.0.0
 # If you plan to integrate with OpenAI or other LLM
-openai
-Werkzeug
+openai==1.50.2
+Werkzeug==3.0.4
