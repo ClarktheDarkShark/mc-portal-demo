@@ -42,7 +42,7 @@ function Home() {
       link: '/policy-docs',
     },
     {
-      title: 'IMDF Info',
+      title: 'IMDF',
       description:
         'Learn more about the Integrated Mission Data Fabric (IMDF) and how to participate.',
       image: '/images/imdf.jpg',

@@ -15,6 +15,8 @@ import ChatGPTLike from './pages/ChatGPTLike';
 import IMDFInfo from './pages/IMDFInfo';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import DataCatalogue from './pages/DataCatalogue';  // For data-repository
+import AICatalogue from './pages/AICatalogue';        // For ai-repository
 
 function App() {
   return (
