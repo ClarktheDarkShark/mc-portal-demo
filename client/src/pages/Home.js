@@ -78,29 +78,6 @@ function Home() {
         </Container>
       </Box>
 
-      {/* Chat Window Section */}
-      <Box sx={{ py: 4, backgroundColor: '#e0e0e0', textAlign: 'center' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
-            Chat Assistant
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Use the chat window below to connect with our assistant.
-          </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <iframe
-              src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
-              title="Chat Assistant"
-              style={{
-                width: '100%',
-                maxWidth: '800px',
-                height: '400px',
-                border: 'none',
-              }}
-            ></iframe>
-          </Box>
-        </Container>
-      </Box>
 
       {/* Features Section */}
       <Box sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
@@ -151,8 +128,31 @@ function Home() {
             ))}
           </Grid>
         </Container>
-      </Box>
 
+      </Box>
+      {/* Chat Window Section */}
+      <Box sx={{ py: 4, backgroundColor: '#e0e0e0', textAlign: 'center' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
+            Chat Assistant
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Use the chat window below to connect with our assistant.
+          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <iframe
+              src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
+              title="Chat Assistant"
+              style={{
+                width: '100%',
+                maxWidth: '800px',
+                height: '500px',
+                border: 'none',
+              }}
+            ></iframe>
+          </Box>
+        </Container>
+      </Box>
     </Box>
   );
 }
