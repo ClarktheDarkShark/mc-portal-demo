@@ -22,14 +22,14 @@ function Home() {
 
   const features = [
     {
-      title: 'Data Repository',
+      title: 'Data',
       description:
         'Access a comprehensive collection of USMC data resources.',
       image: '/images/data-repo.jpg',
       link: '/data-repository',
     },
     {
-      title: 'AI Repository',
+      title: 'AI',
       description:
         'Access a comprehensive collection of USMC AI resources.',
       image: '/images/ai-repo.jpg',
@@ -105,7 +105,7 @@ function Home() {
               mb: 2,
             }}
           >
-            Welcome to the USMC Data & AI Portal
+            USMC Data & AI Portal
           </Typography>
           <Typography
             variant="h5"
@@ -117,7 +117,7 @@ function Home() {
               lineHeight: 1.4,
             }}
           >
-            Your centralized hub for data, AI policies, and innovative solutions to empower the Marine Corps.
+            Your centralized hub for data & AI policies, catalogues, and innovative solutions to empower the Marine Corps.
           </Typography>
         </Container>
       </Box>
