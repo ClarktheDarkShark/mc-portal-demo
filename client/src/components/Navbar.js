@@ -1,5 +1,3 @@
-// client/src/components/Navbar.js
-
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
@@ -9,12 +7,7 @@ function Navbar() {
     <AppBar
       position="static"
       sx={{
-        backgroundImage: 'url(/images/header.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        // Optional: If the image is busy, you can darken it:
-        backgroundColor: 'rgba(0, 0, 0, 0.54)',
-        backgroundBlendMode: 'multiply',
+        backgroundColor: '#d32f2f', // Use USMC red or any desired color
       }}
     >
       <Toolbar>
