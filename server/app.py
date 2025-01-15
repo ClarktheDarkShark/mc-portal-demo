@@ -1,5 +1,6 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
+import os
 
 # Import Blueprints from your routes
 from .routes.policy_docs import policy_docs_bp
@@ -20,7 +21,9 @@ app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_frontend(path):
-    if path != "" and path.exists:
+    # Build the absolute path for the requested file
+    file_path = os.path.join(app.static_folder, path)
+    if path != "" and os.path.exists(file_path):
         return send_from_directory(app.static_folder, path)
     else:
         return send_from_directory(app.static_folder, "index.html")
