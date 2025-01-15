@@ -103,7 +103,7 @@ function AICatalogue() {
                         <CardMedia
                           component="img"
                           height="140"
-                          image="/images/placeholder-model.jpg" // Use a placeholder image or if you have specific images, change accordingly
+                          image="/images/ai-repo2.jpg" // Use a placeholder image or if you have specific images, change accordingly
                           alt={model.name}
                         />
                         <CardContent>
