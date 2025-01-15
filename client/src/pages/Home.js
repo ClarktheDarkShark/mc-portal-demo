@@ -138,11 +138,10 @@ function Home() {
             gutterBottom
             sx={{ fontWeight: 600 }}
           >
-            Our Features
+            Data and AI Resources
           </Typography>
           <Typography variant="subtitle1" align="center" paragraph>
-            Explore the key features that make our portal indispensable for data
-            and AI initiatives.
+            Resources that support your data and AI needs.
           </Typography>
           <Grid container spacing={4}>
             {features.map((feature, index) => (
