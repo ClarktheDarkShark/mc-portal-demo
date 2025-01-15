@@ -16,6 +16,7 @@ import IMDFInfo from './pages/IMDFInfo';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import EnterpriseAIRegistry from './pages/EnterpriseAIRegistry';
+import APIStore from './pages/APIStore';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/ai-registry" element={<EnterpriseAIRegistry />} />
           <Route path="/chat" element={<ChatGPTLike />} />
           <Route path="/imdf" element={<IMDFInfo />} />
+          <Route path="/apistore" element={<APIStore />} />
           {/* Add more routes as needed */}
         </Routes>
         <Footer />
