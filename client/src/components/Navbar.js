@@ -1,31 +1,72 @@
+// client/src/components/Navbar.js
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Link as RouterLink } from 'react-router-dom';
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: '#d32f2f', // USMC Red
+  },
+  title: {
+    flexGrow: 1,
+    textDecoration: 'none',
+    color: '#fff',
+  },
+  button: {
+    marginLeft: theme.spacing(2),
+    color: '#fff',
+    textTransform: 'none',
+  },
+}));
 
 function Navbar() {
-  const navStyle = {
-    display: 'flex',
-    background: '#d32f2f',
-    padding: '1rem',
-    alignItems: 'center',
-    color: 'white'
-  };
-
-  const linkStyle = {
-    color: 'white',
-    marginRight: '1rem',
-    textDecoration: 'none'
-  };
+  const classes = useStyles();
 
   return (
-    <nav style={navStyle}>
-      <h2 style={{ marginRight: '2rem' }}>USMC AI Portal</h2>
-      <Link to="/" style={linkStyle}>Home</Link>
-      <Link to="/policy-docs" style={linkStyle}>Policy Docs</Link>
-      <Link to="/data-ai-repository" style={linkStyle}>Data & AI Repo</Link>
-      <Link to="/chat" style={linkStyle}>Chat</Link>
-      <Link to="/imdf" style={linkStyle}>IMDF</Link>
-      <Link to="/api-store" style={linkStyle}>API Store</Link>
-    </nav>
+    <AppBar position="static" className={classes.appBar}>
+      <Toolbar>
+        <Typography 
+          variant="h6" 
+          component={RouterLink} 
+          to="/" 
+          className={classes.title}
+        >
+          USMC AI Portal
+        </Typography>
+        <Box>
+          <Button 
+            component={RouterLink} 
+            to="/policy-docs" 
+            className={classes.button}
+          >
+            Policy Docs
+          </Button>
+          <Button 
+            component={RouterLink} 
+            to="/data-ai-repository" 
+            className={classes.button}
+          >
+            Data Repository
+          </Button>
+          <Button 
+            component={RouterLink} 
+            to="/chat" 
+            className={classes.button}
+          >
+            Chat Assistant
+          </Button>
+          <Button 
+            component={RouterLink} 
+            to="/api-store" 
+            className={classes.button}
+          >
+            API Store
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }
 
