@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Box, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Navbar() {
@@ -7,25 +7,26 @@ function Navbar() {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: '#d32f2f', // Use USMC red or any desired color
+        backgroundColor: '#b71c1c', // Slightly darker red
       }}
     >
       <Toolbar>
+        {/* Home Link (Image version) */}
+        <Button
+          component={RouterLink}
+          to="/"
+          sx={{ p: 0, mr: 2 }}
+        >
+          <img
+            src="/images/home-icon.png" // Ensure you have the correct path for the home icon image
+            alt="Home"
+            style={{ height: '40px' }}
+          />
+        </Button>
+
+        {/* Placeholder for other navbar content */}
         <Box sx={{ flexGrow: 1 }}>
-          <Typography
-            variant="h6"
-            component={RouterLink}
-            to="/"
-            sx={{
-              textDecoration: 'none',
-              color: 'inherit',
-              fontWeight: 700,
-              // Optional: Add text shadow for improved readability
-              textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)',
-            }}
-          >
-            USMC Data & AI Portal
-          </Typography>
+          {/* Add additional components, e.g., links or text */}
         </Box>
       </Toolbar>
     </AppBar>
