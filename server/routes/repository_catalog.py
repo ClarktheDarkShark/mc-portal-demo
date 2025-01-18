@@ -89,35 +89,35 @@ def get_ai_catalog():
 
 @repository_catalog_bp.route("/data", methods=["GET"])
 def get_data_catalog():
-    # Return a mock Data Catalogue with dataRepository and dataReports sections
+    # Data structure for the Data Catalogue matching the working AI Catalogue structure
     data_catalog = {
         "dataRepository": {
             "categories": [
                 {
-                    "name": "Category 1",
+                    "name": "Data Category 1",
                     "datasets": [
                         {
-                            "name": "Data Set 1",
-                            "description": "Sample data set #1",
-                            "link": "https://example.com/data1",
-                            "image": "/images/data-set-1.jpg"
+                            "name": "Dataset 1",
+                            "description": "This is the first dataset in Category 1.",
+                            "link": "https://example.com/dataset1",
+                            "image": "/images/dataset1.jpg"
                         },
                         {
-                            "name": "Data Set 2",
-                            "description": "Sample data set #2",
-                            "link": "https://example.com/data2",
-                            "image": "/images/data-set-2.jpg"
+                            "name": "Dataset 2",
+                            "description": "This is the second dataset in Category 1.",
+                            "link": "https://example.com/dataset2",
+                            "image": "/images/dataset2.jpg"
                         }
                     ]
                 },
                 {
-                    "name": "Category 2",
+                    "name": "Data Category 2",
                     "datasets": [
                         {
-                            "name": "Data Set 3",
-                            "description": "Sample data set #3",
-                            "link": "https://example.com/data3",
-                            "image": "/images/data-set-3.jpg"
+                            "name": "Dataset 3",
+                            "description": "This is the first dataset in Category 2.",
+                            "link": "https://example.com/dataset3",
+                            "image": "/images/dataset3.jpg"
                         }
                     ]
                 }
@@ -125,7 +125,7 @@ def get_data_catalog():
         },
         "dataReports": {
             "name": "Data Reports",
-            "description": "Comprehensive reports for Marine Corps operations.",
+            "description": "Comprehensive reports and insights for data analytics.",
             "link": "https://example.com/data-reports"
         }
     }

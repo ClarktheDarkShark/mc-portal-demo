@@ -24,6 +24,7 @@ app.register_blueprint(api_store_bp, url_prefix="/api/apistore")
 app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
 app.register_blueprint(enterprise_ai_registry_bp, url_prefix="/api/ai-registry")
 
+
 def wake_up_heroku_app():
     """
     Function to send a GET request to the Heroku app to wake it up.
