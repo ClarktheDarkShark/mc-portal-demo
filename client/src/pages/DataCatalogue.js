@@ -1,5 +1,7 @@
 // client/src/pages/DataCatalogue.js
 
+import React, { useEffect, useState } from 'react';
+
 function DataCatalogue() {
   const [dataCatalogue, setDataCatalogue] = useState(null);
 
