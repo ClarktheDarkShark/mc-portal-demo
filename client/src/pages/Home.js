@@ -187,21 +187,21 @@ function Home() {
           onClick={toggleChat}
           sx={{
             position: 'fixed',
-            bottom: 90,
+            bottom: 70,
             right: 16,
             zIndex: 1300,
-            width: 80,
-            height: 80,
-            background: 'linear-gradient(45deg, #00C6FB 30%,rgba(0, 90, 234, 0.59) 90%)',
+            width: 90,
+            height: 90,
+            background: 'linear-gradient(45deg, #00C6FB 30%,rgba(0, 90, 234, 0.59) 80%)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)',
             '&:hover': {
-              background: 'linear-gradient(45deg, #009FDA 30%,rgba(0, 78, 194, 0.57) 90%)',
+              background: 'linear-gradient(45deg, #009FDA 30%,rgba(0, 78, 194, 0.57) 80%)',
             },
           }}
         >
           {/* Use the custom image as the chat icon */}
           <img
-            src="/images/aichat2.png"
+            src="/images/chat-icon.png"
             alt="AI Chat"
             style={{ width: '70%', height: '70%' }}
           />
@@ -232,7 +232,7 @@ function Home() {
         </Box>
         <Box>
           <iframe
-            src="https://mc-chat-app-3dc46f63fc94.herokuapp.com"
+            src="http://mc-chat-app.eastus.azurecontainer.io:3000"
             title="Chat Assistant"
             style={{
               width: '100%',
