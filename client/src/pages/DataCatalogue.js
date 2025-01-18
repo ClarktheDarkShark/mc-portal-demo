@@ -23,10 +23,12 @@ function DataCatalogue() {
     fetch('/api/repository/data')
       .then((res) => res.json())
       .then((data) => {
+        console.log('Fetched Data Catalogue:', data); // Check the structure
         setDataCatalogue(data);
         if (
           data &&
           data.dataRepository &&
+          Array.isArray(data.dataRepository.categories) &&
           data.dataRepository.categories.length > 0
         ) {
           setSelectedCategory(data.dataRepository.categories[0].name);
@@ -83,7 +85,7 @@ function DataCatalogue() {
               label="Select Category"
               onChange={handleCategoryChange}
             >
-              {dataCatalogue.dataRepository.categories.map((category, index) => (
+              {(dataCatalogue.dataRepository.categories || []).map((category, index) => (
                 <MenuItem key={index} value={category.name}>
                   {category.name}
                 </MenuItem>
