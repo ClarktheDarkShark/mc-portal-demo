@@ -89,22 +89,46 @@ def get_ai_catalog():
 
 @repository_catalog_bp.route("/data", methods=["GET"])
 def get_data_catalog():
-    # Return a mock Data Catalogue
-    data_catalog = [
-        {
-            "name": "Data Set 1",
-            "link": "https://example.com/data1",
-            "description": "Sample data set #1"
+    # Return a mock Data Catalogue with dataRepository and dataReports sections
+    data_catalog = {
+        "dataRepository": {
+            "categories": [
+                {
+                    "name": "Category 1",
+                    "datasets": [
+                        {
+                            "name": "Data Set 1",
+                            "description": "Sample data set #1",
+                            "link": "https://example.com/data1",
+                            "image": "/images/data-set-1.jpg"
+                        },
+                        {
+                            "name": "Data Set 2",
+                            "description": "Sample data set #2",
+                            "link": "https://example.com/data2",
+                            "image": "/images/data-set-2.jpg"
+                        }
+                    ]
+                },
+                {
+                    "name": "Category 2",
+                    "datasets": [
+                        {
+                            "name": "Data Set 3",
+                            "description": "Sample data set #3",
+                            "link": "https://example.com/data3",
+                            "image": "/images/data-set-3.jpg"
+                        }
+                    ]
+                }
+            ]
         },
-        {
-            "name": "Data Set 2",
-            "link": "https://example.com/data2",
-            "description": "Sample data set #2"
-        },
-        {
+        "dataReports": {
             "name": "Data Reports",
-            "link": "https://example.com/data-reports",
-            "description": "Comprehensive reports for Marine Corps operations."
+            "description": "Comprehensive reports for Marine Corps operations.",
+            "link": "https://example.com/data-reports"
         }
-    ]
+    }
+
     return jsonify(data_catalog)
+

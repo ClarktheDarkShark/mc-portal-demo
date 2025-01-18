@@ -28,7 +28,7 @@ def wake_up_heroku_app():
     """
     Function to send a GET request to the Heroku app to wake it up.
     """
-    url = "https://mc-chat-app-3dc46f63fc94.herokuapp.com"
+    url = "https://mc-ai-agent-4181d506847b.herokuapp.com"
     try:
         response = requests.get(url, timeout=10)
         app.logger.info(f"Heroku app wake-up response: {response.status_code}")
