@@ -187,26 +187,32 @@ function Home() {
           onClick={toggleChat}
           sx={{
             position: 'fixed',
-            bottom: 70,
+            bottom: 40,
             right: 16,
             zIndex: 1300,
             width: 90,
             height: 90,
-            background: 'linear-gradient(45deg, #00C6FB 30%,rgba(0, 90, 234, 0.59) 80%)',
+            background: 'linear-gradient(45deg, #00C6FB 30%, rgba(0, 90, 234, 0.59) 80%)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)',
             '&:hover': {
-              background: 'linear-gradient(45deg, #009FDA 30%,rgba(0, 78, 194, 0.57) 80%)',
+              background: 'linear-gradient(45deg, #009FDA 30%, rgba(0, 78, 194, 0.57) 80%)',
             },
           }}
         >
-          {/* Use the custom image as the chat icon */}
           <img
             src="/images/chat-icon.png"
             alt="AI Chat"
-            style={{ width: '70%', height: '70%' }}
+            style={{
+              width: '70%',
+              height: '70%',
+              objectFit: 'contain',
+              margin: 'auto',
+              display: 'block',
+            }}
           />
         </Fab>
       </Tooltip>
+
 
       {/* Chat Drawer */}
       <Drawer
