@@ -240,7 +240,7 @@ function Home() {
         </Box>
         <Box>
           <iframe
-            src="http://mc-chat-app.eastus.azurecontainer.io:3000"
+            src="https://mc-chat-app.eastus.azurecontainer.io"
             title="Chat Assistant"
             style={{
               width: '100%',
