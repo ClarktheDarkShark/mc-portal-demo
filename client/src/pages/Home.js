@@ -75,7 +75,7 @@ function Home() {
         sx={{
           position: 'relative',
           backgroundImage: 'url(/images/home-portal2-copy.png)',
-          backgroundSize: 'cover',
+          backgroundSize: { xs: 'cover', md: 'contain' }, // Adjust background size
           backgroundPosition: 'center',
           color: '#fff',
           py: 8,

@@ -35,12 +35,12 @@ function DataCatalogue() {
   }
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
-      <h2>Data Catalogue</h2>
+    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Data Catalogue</h2>
 
       {/* Data Repository Section */}
       <section>
-        <h3>Data Repository Categories</h3>
+        <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '0.5rem' }}>Data Repository Categories</h3>
         {dataCatalogue.dataRepository.categories.map((cat, catIndex) => (
           <div
             key={catIndex}
@@ -49,6 +49,7 @@ function DataCatalogue() {
               border: '1px solid #ccc',
               borderRadius: '8px',
               padding: '1rem',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             }}
           >
             <div
@@ -60,7 +61,17 @@ function DataCatalogue() {
               }}
             >
               <h4 style={{ margin: 0 }}>{cat.name}</h4>
-              <button onClick={() => toggleCategory(catIndex)}>
+              <button
+                onClick={() => toggleCategory(catIndex)}
+                style={{
+                  background: '#007bff',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '0.5rem 1rem',
+                  cursor: 'pointer',
+                }}
+              >
                 {openCategories[catIndex] ? 'Hide Datasets' : 'Show Datasets'}
               </button>
             </div>
@@ -96,7 +107,7 @@ function DataCatalogue() {
       {/* Data Reports Section */}
       {dataCatalogue.dataReports && (
         <section style={{ marginTop: '2rem' }}>
-          <h3>{dataCatalogue.dataReports.name}</h3>
+          <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '0.5rem' }}>{dataCatalogue.dataReports.name}</h3>
           <p>{dataCatalogue.dataReports.description}</p>
           <p>
             <a
@@ -114,7 +125,7 @@ function DataCatalogue() {
       {/* Data APIs Section */}
       {dataCatalogue.dataAPIs && (
         <section style={{ marginTop: '2rem' }}>
-          <h3>{dataCatalogue.dataAPIs.name}</h3>
+          <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '0.5rem' }}>{dataCatalogue.dataAPIs.name}</h3>
           <p>{dataCatalogue.dataAPIs.description}</p>
           <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
             {dataCatalogue.dataAPIs.endpoints.map((endpoint, index) => (
