@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 function DataCatalogue() {
   const [dataCatalogue, setDataCatalogue] = useState(null);
   const [selectedMenu, setSelectedMenu] = useState('Data Assets');
+  const [selectedDataset, setSelectedDataset] = useState(null);
   const [openCategories, setOpenCategories] = useState({});
 
   useEffect(() => {
@@ -25,6 +26,19 @@ function DataCatalogue() {
       [index]: !prev[index],
     }));
   };
+
+  const renderDatasetDetails = (dataset) => (
+    <div>
+      <h4>{dataset.name}</h4>
+      <p><strong>Overview:</strong> {dataset.overview}</p>
+      <p><strong>Data Quality:</strong> {dataset.dataQuality}</p>
+      <p><strong>Lineage:</strong> {dataset.lineage}</p>
+      <p><strong>Connection Details:</strong> {dataset.connectionDetails}</p>
+      <a href={dataset.link} target="_blank" rel="noopener noreferrer" style={{ color: '#007bff' }}>
+        [Link]
+      </a>
+    </div>
+  );
 
   const renderContent = () => {
     switch (selectedMenu) {
@@ -76,17 +90,11 @@ function DataCatalogue() {
                           margin: '0.5rem 0',
                           padding: '0.5rem',
                           borderBottom: '1px solid #e0e0e0',
+                          cursor: 'pointer',
                         }}
+                        onClick={() => setSelectedDataset(dataset)}
                       >
-                        <strong>{dataset.name}</strong> - {dataset.description}{' '}
-                        <a
-                          href={dataset.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ color: '#007bff' }}
-                        >
-                          [Link]
-                        </a>
+                        <strong>{dataset.name}</strong> - {dataset.description}
                       </li>
                     ))}
                   </ul>
@@ -119,7 +127,10 @@ function DataCatalogue() {
           {['Data Assets', 'Systems', 'Data Source', 'Infrastructure', 'Standards'].map((menu) => (
             <li key={menu} style={{ marginBottom: '1rem' }}>
               <button
-                onClick={() => setSelectedMenu(menu)}
+                onClick={() => {
+                  setSelectedMenu(menu);
+                  setSelectedDataset(null);
+                }}
                 style={{
                   background: selectedMenu === menu ? '#007bff' : '#f0f0f0',
                   color: selectedMenu === menu ? '#fff' : '#000',
@@ -138,7 +149,7 @@ function DataCatalogue() {
         </ul>
       </nav>
       <main style={{ flex: 1 }}>
-        {renderContent()}
+        {selectedDataset ? renderDatasetDetails(selectedDataset) : renderContent()}
       </main>
     </div>
   );
