@@ -59,7 +59,7 @@ function Home() {
       title: 'API Store',
       description:
         'Discover and access a range of APIs for your development needs.',
-      image: '/images/api-icon.png', // Ensure this image exists
+      image: '/images/api-icon2.png', // Ensure this image exists
       link: '/apistore',
     },
   ];
