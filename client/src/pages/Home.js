@@ -74,7 +74,7 @@ function Home() {
       <Box
         sx={{
           position: 'relative',
-          backgroundImage: 'url(/images/home-portal3.png)',
+          backgroundImage: 'url(/images/home-portal2-copy.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#fff',
