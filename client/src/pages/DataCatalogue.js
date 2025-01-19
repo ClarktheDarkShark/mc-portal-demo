@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 function DataCatalogue() {
   const [dataCatalogue, setDataCatalogue] = useState(null);
-  const [selectedMenu, setSelectedMenu] = useState('Data Assets');
+  const [selectedSection, setSelectedSection] = useState('repository');
   const [selectedDataset, setSelectedDataset] = useState(null);
   const [openCategories, setOpenCategories] = useState({});
 
@@ -28,21 +28,107 @@ function DataCatalogue() {
   };
 
   const renderDatasetDetails = (dataset) => (
+    <div style={{
+      padding: '2rem',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+    }}>
+      <h3>{dataset.name}</h3>
+      <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr' }}>
+        <div>
+          <img src={dataset.image} alt={dataset.name} style={{ width: '100%', borderRadius: '4px' }} />
+        </div>
+        <div>
+          <p><strong>Description:</strong> {dataset.description}</p>
+          <p><strong>Overview:</strong> {dataset.overview}</p>
+          <p><strong>Last Updated:</strong> {dataset.lastUpdated}</p>
+          <p><strong>Data Quality:</strong> 
+            <span style={{ 
+              color: dataset.dataQuality === 'High' ? 'green' : 'orange',
+              fontWeight: 'bold'
+            }}>
+              {dataset.dataQuality}
+            </span>
+          </p>
+          <p><strong>Lineage:</strong> {dataset.lineage}</p>
+          <p><strong>Connection Details:</strong> {dataset.connectionDetails}</p>
+          <a href={dataset.link} target="_blank" rel="noopener noreferrer" 
+            style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              backgroundColor: '#007bff',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '4px'
+            }}>
+            Access Dataset
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderReports = () => (
     <div>
-      <h4>{dataset.name}</h4>
-      <p><strong>Overview:</strong> {dataset.overview}</p>
-      <p><strong>Data Quality:</strong> {dataset.dataQuality}</p>
-      <p><strong>Lineage:</strong> {dataset.lineage}</p>
-      <p><strong>Connection Details:</strong> {dataset.connectionDetails}</p>
-      <a href={dataset.link} target="_blank" rel="noopener noreferrer" style={{ color: '#007bff' }}>
-        [Link]
-      </a>
+      <h3>Data Analytics Reports</h3>
+      <p>{dataCatalogue.dataReports.description}</p>
+      <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
+        {dataCatalogue.dataReports.reports.map((report, index) => (
+          <div key={index} style={{
+            padding: '1rem',
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+          }}>
+            <h4>{report.title}</h4>
+            <p>{report.summary}</p>
+            <p><small>Published: {report.publishedDate}</small></p>
+            <a href={report.link} target="_blank" rel="noopener noreferrer" 
+              style={{ color: '#007bff' }}>
+              View Report
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderAPIs = () => (
+    <div>
+      <h3>Data Access APIs</h3>
+      <p>{dataCatalogue.dataAPIs.description}</p>
+      <div style={{ display: 'grid', gap: '1rem' }}>
+        {dataCatalogue.dataAPIs.endpoints.map((api, index) => (
+          <div key={index} style={{
+            padding: '1rem',
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+          }}>
+            <code style={{ 
+              backgroundColor: '#f8f9fa',
+              padding: '0.5rem',
+              borderRadius: '4px',
+              display: 'block',
+              marginBottom: '0.5rem'
+            }}>
+              {api.endpoint}
+            </code>
+            <p>{api.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 
   const renderContent = () => {
-    switch (selectedMenu) {
-      case 'Data Assets':
+    if (selectedDataset) {
+      return renderDatasetDetails(selectedDataset);
+    }
+
+    switch (selectedSection) {
+      case 'repository':
         return (
           <section>
             <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '0.5rem' }}>Data Repository Categories</h3>
@@ -103,14 +189,10 @@ function DataCatalogue() {
             ))}
           </section>
         );
-      case 'Systems':
-        return <div>Systems content goes here...</div>;
-      case 'Data Source':
-        return <div>Data Source content goes here...</div>;
-      case 'Infrastructure':
-        return <div>Infrastructure content goes here...</div>;
-      case 'Standards':
-        return <div>Standards content goes here...</div>;
+      case 'reports':
+        return renderReports();
+      case 'apis':
+        return renderAPIs();
       default:
         return null;
     }
@@ -121,35 +203,39 @@ function DataCatalogue() {
   }
 
   return (
-    <div style={{ display: 'flex', padding: '2rem', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
-      <nav style={{ width: '200px', marginRight: '2rem' }}>
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
-          {['Data Assets', 'Systems', 'Data Source', 'Infrastructure', 'Standards'].map((menu) => (
-            <li key={menu} style={{ marginBottom: '1rem' }}>
-              <button
-                onClick={() => {
-                  setSelectedMenu(menu);
-                  setSelectedDataset(null);
-                }}
-                style={{
-                  background: selectedMenu === menu ? '#007bff' : '#f0f0f0',
-                  color: selectedMenu === menu ? '#fff' : '#000',
-                  border: 'none',
-                  borderRadius: '4px',
-                  padding: '0.5rem 1rem',
-                  cursor: 'pointer',
-                  width: '100%',
-                  textAlign: 'left',
-                }}
-              >
-                {menu}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <main style={{ flex: 1 }}>
-        {selectedDataset ? renderDatasetDetails(selectedDataset) : renderContent()}
+    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
+      <div style={{
+        display: 'flex',
+        gap: '1rem',
+        marginBottom: '2rem',
+        borderBottom: '1px solid #dee2e6'
+      }}>
+        {[
+          { id: 'repository', label: 'Data Repository' },
+          { id: 'reports', label: 'Reports' },
+          { id: 'apis', label: 'APIs' }
+        ].map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => {
+              setSelectedSection(tab.id);
+              setSelectedDataset(null);
+            }}
+            style={{
+              padding: '0.5rem 1rem',
+              border: 'none',
+              background: 'none',
+              borderBottom: selectedSection === tab.id ? '2px solid #007bff' : 'none',
+              color: selectedSection === tab.id ? '#007bff' : '#6c757d',
+              cursor: 'pointer'
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      <main>
+        {renderContent()}
       </main>
     </div>
   );
