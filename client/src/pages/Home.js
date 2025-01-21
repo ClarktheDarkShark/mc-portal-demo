@@ -119,7 +119,7 @@ function Home() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backgroundColor: 'rgb(0, 0, 0)',
           }}
         />
         <Container
@@ -188,9 +188,14 @@ function Home() {
               >
                 <CardMedia
                   component="img"
-                  height="140"
                   image={`${process.env.PUBLIC_URL}/images/alfred.png`}
                   alt="Demo Alfred"
+                  sx={{
+                    width: '100%',
+                    // Use a 16:9 ratio to make the card image rectangular
+                    aspectRatio: '16/9',
+                    objectFit: 'cover',
+                  }}
                 />
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -212,7 +217,9 @@ function Home() {
                     mt: 2,
                     px: 3,
                     backgroundColor: '#1976d2',
-                    '&:hover': { backgroundColor: '#1565c0' },
+                    '&:hover': {
+                      backgroundColor: '#1565c0',
+                    },
                   }}
                 >
                   Explore Alfred
@@ -252,7 +259,9 @@ function Home() {
           px: 2,
           backgroundColor: '#1976d2',
           color: '#fff',
-          '&:hover': { backgroundColor: '#1565c0' },
+          '&:hover': {
+            backgroundColor: '#1565c0',
+          },
           display: 'flex',
           alignItems: 'center',
         }}
@@ -260,7 +269,11 @@ function Home() {
         <img
           src={`${process.env.PUBLIC_URL}/images/alfred.png`}
           alt="Demo Alfred"
-          style={{ width: '30px', height: '30px', marginRight: '8px' }}
+          style={{
+            width: '30px',
+            height: '30px',
+            marginRight: '8px',
+          }}
         />
         Demo Alfred
       </Fab>
@@ -309,11 +322,7 @@ function Home() {
                       alt={feature.title}
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography
-                        gutterBottom
-                        variant="h6"
-                        component="h3"
-                      >
+                      <Typography gutterBottom variant="h6" component="h3">
                         {feature.title}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
