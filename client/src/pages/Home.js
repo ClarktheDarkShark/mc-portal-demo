@@ -1,6 +1,7 @@
 // client/src/pages/Home.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Tutorial from '../components/Tutorial';
 import {
   Box,
   Container,
@@ -19,49 +20,65 @@ import CloseIcon from '@mui/icons-material/Close';
 
 function Home() {
   const [openChat, setOpenChat] = useState(false);
+  const [runTutorial, setRunTutorial] = useState(false);
+
+  useEffect(() => {
+    // Check if tutorial has been completed
+    const tutorialComplete = localStorage.getItem('tutorialComplete');
+    if (!tutorialComplete) {
+      setRunTutorial(true);
+    }
+  }, []);
 
   const features = [
     {
-      title: 'Data',
-      description:
-        'Access a comprehensive collection of USMC data resources.',
-      image: '/images/data-repo.jpg',
+      title: 'Data Catalogue',
+      description: 'Central repository indexing all datasets with metadata, sources, schema, ownership, and lineage information.',
+      image: process.env.PUBLIC_URL + '/images/data-repo.jpg',
       link: '/data-repository',
     },
     {
-      title: 'AI',
-      description:
-        'Access a comprehensive collection of USMC AI resources.',
-      image: '/images/ai-repo.jpg',
+      title: 'AI Operations',
+      description: 'Register, track, and deploy AI/ML models with versioning, metrics, and integration workflows.',
+      image: process.env.PUBLIC_URL + '/images/ai-repo.jpg',
       link: '/ai-repository',
     },
     {
-      title: 'Enterprise AI Registry',
-      description:
-        'Submit and browse USMC AI Use Cases.',
-      image: '/images/ai-registry.png', // Ensure this image exists
+      title: 'AI Capabilities',
+      description: 'Directory of AI use cases, tools, and enterprise capabilities with success metrics.',
+      image: process.env.PUBLIC_URL + '/images/ai-registry.png',
       link: '/ai-registry',
     },
     {
-      title: 'IMDF',
-      description:
-        'Learn more about the Integrated Mission Data Fabric (IMDF) and how to participate.',
-      image: '/images/imdf.jpg',
+      title: 'Governance Dashboard',
+      description: 'Centralized oversight of data governance, security, compliance, and access controls.',
+      image: process.env.PUBLIC_URL + '/images/governance.png',
+      link: '/governance',
+    },
+    {
+      title: 'IMDF Integration',
+      description: 'Integrated Mission Data Fabric (IMDF) for seamless data ingestion and integration across sources.',
+      image: process.env.PUBLIC_URL + '/images/imdf.jpg',
       link: '/imdf',
     },
     {
-      title: 'Policy Documents',
-      description: 'Stay updated with the latest data and AI policies.',
-      image: '/images/policy-docs.jpg',
-      link: '/policy-docs',
+      title: 'Developer Workspace',
+      description: 'Unified environment for coding, experiments, and collaboration with shared notebooks and best practices.',
+      image: process.env.PUBLIC_URL + '/images/developer-workspace.png',
+      link: '/developer-workspace',
     },
     {
-      title: 'API Store',
-      description:
-        'Discover and access a range of APIs for your development needs.',
-      image: '/images/api-icon2.png', // Ensure this image exists
-      link: '/apistore',
+      title: 'Self-Service Analytics',
+      description: 'Tools for independent data exploration, visualization, and insight generation.',
+      image: process.env.PUBLIC_URL + '/images/analytics.png',
+      link: '/analytics',
     },
+    {
+      title: 'Standards & Best Practices',
+      description: 'Enterprise-wide frameworks, templates, and guidance for data and AI practices.',
+      image: process.env.PUBLIC_URL + '/images/standards.png',
+      link: '/standards',
+    }
   ];
 
   const toggleChat = () => {
@@ -70,87 +87,100 @@ function Home() {
 
   return (
     <Box>
-      {/* Hero Section with Dark Overlay */}
-      <Box
-        sx={{
-          position: 'relative',
-          backgroundImage: 'url(/images/home-portal2-copy.png)',
-          backgroundSize: { xs: 'cover', md: 'contain' }, // Adjust background size
-          backgroundPosition: 'center',
-          color: '#fff',
-          py: 8,
-          textAlign: 'center',
-        }}
-      >
-        {/* Dark Overlay */}
+      <Tutorial run={runTutorial} setRun={setRunTutorial} />
+      
+        {/* Hero Section with Subtle Overlay */}
         <Box
           sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-          }}
-        />
-        <Container
-          maxWidth="md"
-          sx={{
             position: 'relative',
-            zIndex: 1,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/home-portal2-copy.png)`,
+            backgroundSize: 'contain', // Consistent size
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            color: '#fff',
+            py: 8,
             textAlign: 'center',
-            padding: '2rem',
+            border: '1px solid rgba(255, 255, 255, 0.2)', // Optional border for cleaner framing
           }}
         >
-          <Typography
-            variant="h2"
-            gutterBottom
+          {/* Subtle Overlay */}
+          <Box
             sx={{
-              fontWeight: 700,
-              color: '#fff',
-              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-              mb: 2,
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.6)', // Darker overlay for less busyness
+            }}
+          />
+          <Container
+            maxWidth="md"
+            sx={{
+              position: 'relative',
+              zIndex: 1,
+              textAlign: 'center',
+              padding: '2rem',
             }}
           >
-            USMC Data & AI Portal
-          </Typography>
-          <Typography
-            variant="h5"
-            paragraph
-            sx={{
-              fontWeight: 500,
-              color: '#fff',
-              textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)',
-              lineHeight: 1.4,
-            }}
-          >
-            Your centralized hub for data & AI policies, catalogues, and innovative solutions to empower the Marine Corps.
-          </Typography>
-        </Container>
-      </Box>
+            <Typography
+              variant="h2"
+              gutterBottom
+              sx={{
+                fontWeight: 700,
+                color: '#fff',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+                mb: 2,
+              }}
+            >
+              USMC Data & AI Portal
+            </Typography>
+            <Typography
+              variant="h5"
+              paragraph
+              sx={{
+                fontWeight: 500,
+                color: '#fff',
+                textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)',
+                lineHeight: 1.4,
+              }}
+            >
+              Your centralized hub for data & AI policies, catalogues, and innovative solutions to empower the Marine Corps.
+            </Typography>
+          </Container>
+        </Box>
+
+
 
       {/* Features Section */}
-      <Box sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
+      <Box className="feature-grid" sx={{ py: 4, textAlign: 'center', backgroundColor: '#f9f9f9' }}>
         <Container maxWidth="lg">
           <Typography
             variant="h4"
             align="center"
             gutterBottom
-            sx={{ fontWeight: 600 }}
+            sx={{ fontWeight: 600, mb: 3 }}
           >
             Data and AI Resources
           </Typography>
-          <Typography variant="subtitle1" align="center" paragraph>
-            Resources that support your data and AI needs.
+          <Typography 
+            variant="subtitle1" 
+            align="center" 
+            paragraph
+            sx={{ mb: 4, maxWidth: '800px', mx: 'auto' }}
+          >
+            Comprehensive tools and resources to support your data and AI initiatives, 
+            ensuring governance, collaboration, and standardization across the enterprise.
           </Typography>
           <Grid container spacing={4}>
             {features.map((feature, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                 <Link to={feature.link} style={{ textDecoration: 'none' }}>
                   <Card
                     sx={{
-                      maxWidth: 345,
-                      margin: 'auto',
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
                       transition: 'transform 0.3s',
                       '&:hover': {
                         transform: 'scale(1.05)',
@@ -163,8 +193,8 @@ function Home() {
                       image={feature.image}
                       alt={feature.title}
                     />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h6" component="h3">
                         {feature.title}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
@@ -182,6 +212,7 @@ function Home() {
       {/* Floating Action Button for Chat with Custom Image */}
       <Tooltip title="Talk to our AI Chat Assistant!" arrow>
         <Fab
+          className="chat-assistant"
           color="secondary"
           aria-label="ai-chat"
           onClick={toggleChat}
@@ -202,7 +233,7 @@ function Home() {
         >
           {/* Use the custom image as the chat icon */}
           <img
-            src="/images/chat-icon.png"
+            src={process.env.PUBLIC_URL + '/images/chat-icon.png'}
             alt="AI Chat"
             style={{
               width: '100%',
@@ -242,6 +273,7 @@ function Home() {
           <iframe
             src="https://mc-ai-agent-4181d506847b.herokuapp.com"
             title="Chat Assistant"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
             style={{
               width: '100%',
               height: 'calc(100vh - 150px)',
