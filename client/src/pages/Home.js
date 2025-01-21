@@ -147,6 +147,36 @@ function Home() {
             >
               Your centralized hub for data & AI policies, catalogues, and innovative solutions to empower the Marine Corps.
             </Typography>
+            {/* Demo Alfred Button */}
+            <Box sx={{ mt: 4 }}>
+              <Fab
+                variant="extended"
+                color="primary"
+                onClick={() => window.location.href = 'https://alfred-demo-311fd5c8f0bf.herokuapp.com'}
+                sx={{
+                  px: 3,
+                  py: 2,
+                  backgroundColor: '#1976d2',
+                  '&:hover': {
+                    backgroundColor: '#1565c0',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/alfred.png`}
+                  alt="Alfred"
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    marginRight: '8px',
+                  }}
+                />
+                Demo Alfred
+              </Fab>
+            </Box>
+
           </Container>
         </Box>
 
