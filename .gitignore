@@ -15,7 +15,6 @@ jspm_packages/
 
 # Build outputs
 dist/
-build/
 
 # Environment variable files
 .env
