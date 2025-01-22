@@ -17,8 +17,7 @@ const Tutorial = ({ run, setRun }) => {
       target: '.feature-grid',
       content: 'Browse our comprehensive suite of data and AI tools. Each card provides access to different services and resources.',
       placement: 'bottom', // Ensures tooltip appears below the target
-      offset: 10, // Adjust if necessary
-      scrollOffset: 100, // Offset scrolling to bring the tooltip into view
+      disableScrolling: true, // Disable scrolling for this step
     },
     {
       target: '.chat-assistant',
