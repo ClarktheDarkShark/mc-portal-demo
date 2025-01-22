@@ -113,7 +113,7 @@ function Home() {
         sx={{
           position: 'relative',
           backgroundImage: `url(${process.env.PUBLIC_URL}/images/home-portal2-copy.png)`,
-          backgroundSize: 'contain',
+          // backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           color: '#fff',
