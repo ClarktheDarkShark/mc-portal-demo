@@ -12,7 +12,7 @@ from .routes.repository_catalog import repository_catalog_bp  # This now contain
 from .routes.api_store import api_store_bp
 from .routes.imdf import imdf_bp
 from .routes.enterprise_ai_registry import enterprise_ai_registry_bp
-from.routes.configure import configure_bp
+from .routes.configure import configure_bp
 # from .routes.developer_workspace import developer_workspace_bp
 # from .routes.governance import governance_bp
 # from .routes.analytics import analytics_bp
