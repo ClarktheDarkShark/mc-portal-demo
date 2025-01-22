@@ -55,11 +55,12 @@ def serve_frontend(path):
     if path.startswith("api/"):
         return {"error": "Not Found"}, 404
 
-    # Serve React static files or index.html
+    # Serve React static files or fallback to index.html
     file_path = os.path.join(app.static_folder, path)
-    if path != "" and os.path.exists(file_path):
+    if os.path.exists(file_path):
         return send_from_directory(app.static_folder, path)
     else:
+        # Always return index.html for React routes
         return send_from_directory(app.static_folder, "index.html")
 
     
