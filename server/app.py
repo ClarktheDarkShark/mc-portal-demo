@@ -12,6 +12,7 @@ from .routes.repository_catalog import repository_catalog_bp  # This now contain
 from .routes.api_store import api_store_bp
 from .routes.imdf import imdf_bp
 from .routes.enterprise_ai_registry import enterprise_ai_registry_bp
+from.routes.configure import configure_bp
 # from .routes.developer_workspace import developer_workspace_bp
 # from .routes.governance import governance_bp
 # from .routes.analytics import analytics_bp
@@ -27,6 +28,7 @@ app.register_blueprint(repository_catalog_bp, url_prefix="/api/repository")
 app.register_blueprint(api_store_bp, url_prefix="/api/apistore")
 app.register_blueprint(imdf_bp, url_prefix="/api/imdf")
 app.register_blueprint(enterprise_ai_registry_bp, url_prefix="/api/ai-registry")
+app.register_blueprint(configure_bp, url_prefix="/api/config")
 
 
 def wake_up_heroku_app():
@@ -48,12 +50,16 @@ def wake_up_heroku_app():
 @app.route("/<path:path>")
 def serve_frontend(path):
     wake_up_heroku_app()
-    # Build the absolute path for the requested file from the build folder
+
+    # Skip serving React for API requests
+    if path.startswith("api/"):
+        return {"error": "Not Found"}, 404
+
+    # Serve React static files or index.html
     file_path = os.path.join(app.static_folder, path)
     if path != "" and os.path.exists(file_path):
         return send_from_directory(app.static_folder, path)
     else:
-        # If the file doesn't exist, serve index.html so React Router can handle the route
         return send_from_directory(app.static_folder, "index.html")
 
     
