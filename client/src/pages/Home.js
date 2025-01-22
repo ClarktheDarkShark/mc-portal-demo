@@ -98,7 +98,18 @@ function Home() {
       <Tutorial run={runTutorial} setRun={setRunTutorial} />
 
       {/* Hero Section with Subtle Overlay */}
-      <Box
+        {/* Subtle Overlay */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          }}
+        />
+        <Box
         sx={{
           position: 'relative',
           backgroundImage: `url(${process.env.PUBLIC_URL}/images/home-portal2-copy.png)`,
@@ -111,7 +122,6 @@ function Home() {
           border: '1px solid rgba(255, 255, 255, 0.2)',
         }}
       >
-        {/* Subtle Overlay */}
         <Box
           sx={{
             position: 'absolute',
@@ -119,7 +129,7 @@ function Home() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0)',
+            backgroundColor: 'rgba(0, 0, 0, 0.1)',
           }}
         />
         <Container
@@ -163,8 +173,11 @@ function Home() {
       <Fab
         variant="extended"
         onClick={() =>
-          (window.location.href =
-            'https://alfred-demo-311fd5c8f0bf.herokuapp.com')
+          window.open(
+            'https://alfred-demo-311fd5c8f0bf.herokuapp.com',
+            '_blank', // Open in a new tab
+            'noopener,noreferrer' // Security settings
+          )
         }
         sx={{
           position: 'fixed',
@@ -304,8 +317,11 @@ function Home() {
                   variant="extended"
                   color="primary"
                   onClick={() =>
-                    (window.location.href =
-                      'https://alfred-demo-311fd5c8f0bf.herokuapp.com')
+                    window.open(
+                      'https://alfred-demo-311fd5c8f0bf.herokuapp.com',
+                      '_blank', // Open in a new tab
+                      'noopener,noreferrer' // Security settings
+                    )
                   }
                   sx={{
                     mt: 2,
