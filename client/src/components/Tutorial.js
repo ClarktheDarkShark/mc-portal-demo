@@ -1,29 +1,3 @@
-
-// import React, { useState, useEffect } from 'react';
-// import Joyride from 'react-joyride';
-// import Tutorial from './Tutorial';
-
-// const Home = () => {
-//   const [run, setRun] = useState(false);
-
-//   useEffect(() => {
-//     const tutorialComplete = localStorage.getItem('tutorialComplete');
-//     if (!tutorialComplete) {
-//       setRun(true);
-//     }
-//   }, []);
-
-//   return (
-//     <div>
-//       <Tutorial run={run} setRun={setRun} />
-//       {/* Rest of your Home component code */}
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
 import React from 'react';
 import Joyride from 'react-joyride';
 
@@ -56,6 +30,7 @@ const Tutorial = ({ run, setRun }) => {
       continuous={true}
       showProgress={true}
       showSkipButton={true}
+      scrollToFirstStep={true}
       styles={{
         options: {
           primaryColor: '#d32f2f',
