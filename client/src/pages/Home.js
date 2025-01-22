@@ -117,7 +117,7 @@ function Home() {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           color: '#fff',
-          py: 26,
+          py: 24,
           textAlign: 'center',
           border: '1px solid rgba(255, 255, 255, 0.2)',
         }}

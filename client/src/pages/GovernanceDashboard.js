@@ -24,7 +24,7 @@ import {
 
 // Updated compliance data with DoD-relevant metric
 const complianceData = [
-  { title: 'DoD Cybersecurity Compliance', percentage: 92 },
+  { title: 'DoD RAI Compliance', percentage: 92 },
   { title: 'Data Security', percentage: 88 },
   { title: 'Access Controls', percentage: 95 }
 ];
