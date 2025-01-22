@@ -43,7 +43,7 @@ const activePolicies = [
 ];
 
 const dataAccessControls = [
-  { resource: 'Data Lake', accessLevel: 'Restricted', users: 150 },
+  { resource: 'IMDF', accessLevel: 'Restricted', users: 150 },
   { resource: 'AI Platform', accessLevel: 'Controlled', users: 75 }
 ];
 
@@ -160,7 +160,7 @@ const Governance = () => {
       {/* Enterprise Data Fabric Section */}
       <Box mb={4}>
         <Typography variant="h5" gutterBottom>
-          Enterprise Data Fabric
+          IMDF - Enterprise Data Fabric
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
           What is IMDF?
