@@ -119,7 +119,7 @@ function Home() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgb(0, 0, 0)',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
           }}
         />
         <Container
@@ -156,91 +156,6 @@ function Home() {
             Your centralized hub for data & AI policies, catalogues, and innovative
             solutions to empower the Marine Corps.
           </Typography>
-        </Container>
-      </Box>
-
-      {/* Announcements Section */}
-      <Box sx={{ py: 4, px: 2, backgroundColor: '#f1f1f1' }}>
-        <Container maxWidth="lg">
-          <Typography
-            variant="h4"
-            align="center"
-            gutterBottom
-            sx={{ fontWeight: 600, mb: 3 }}
-          >
-            Announcements
-          </Typography>
-          <Grid container spacing={2}>
-            {/* Announcement Card */}
-            <Grid item xs={12} sm={6} md={4}>
-              <Card
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  padding: 2,
-                  transition: 'transform 0.3s',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                  },
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  image={`${process.env.PUBLIC_URL}/images/alfred.png`}
-                  alt="Demo Alfred"
-                  sx={{
-                    width: '100%',
-                    // Use a 16:9 ratio to make the card image rectangular
-                    aspectRatio: '16/9',
-                    objectFit: 'cover',
-                  }}
-                />
-                <CardContent>
-                  <Typography variant="h6" gutterBottom>
-                    Demo Alfred
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Experience Alfred, our latest AI assistant, now available for
-                    demonstration.
-                  </Typography>
-                </CardContent>
-                <Fab
-                  variant="extended"
-                  color="primary"
-                  onClick={() =>
-                    (window.location.href =
-                      'https://alfred-demo-311fd5c8f0bf.herokuapp.com')
-                  }
-                  sx={{
-                    mt: 2,
-                    px: 3,
-                    backgroundColor: '#1976d2',
-                    '&:hover': {
-                      backgroundColor: '#1565c0',
-                    },
-                  }}
-                >
-                  Explore Alfred
-                </Fab>
-              </Card>
-            </Grid>
-            {/* Placeholder for future announcements */}
-            <Grid item xs={12} sm={6} md={4}>
-              <Box
-                sx={{
-                  p: 2,
-                  textAlign: 'center',
-                  border: '1px dashed gray',
-                }}
-              >
-                <Typography variant="body2" color="text.secondary">
-                  New announcements coming soon!
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
         </Container>
       </Box>
 
@@ -333,6 +248,92 @@ function Home() {
                 </Link>
               </Grid>
             ))}
+          </Grid>
+        </Container>
+      </Box>
+
+
+      {/* Announcements Section */}
+      <Box sx={{ py: 4, px: 2, backgroundColor: '#f1f1f1' }}>
+        <Container maxWidth="lg">
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: 600, mb: 3 }}
+          >
+            Announcements
+          </Typography>
+          <Grid container spacing={2}>
+            {/* Announcement Card */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Card
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: 2,
+                  transition: 'transform 0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={`${process.env.PUBLIC_URL}/images/alfred.png`}
+                  alt="Demo Alfred"
+                  sx={{
+                    width: '100%',
+                    // Use a 16:9 ratio to make the card image rectangular
+                    aspectRatio: '16/9',
+                    objectFit: 'cover',
+                  }}
+                />
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    Demo Alfred
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Experience Alfred, our latest AI assistant, now available for
+                    demonstration.
+                  </Typography>
+                </CardContent>
+                <Fab
+                  variant="extended"
+                  color="primary"
+                  onClick={() =>
+                    (window.location.href =
+                      'https://alfred-demo-311fd5c8f0bf.herokuapp.com')
+                  }
+                  sx={{
+                    mt: 2,
+                    px: 3,
+                    backgroundColor: '#1976d2',
+                    '&:hover': {
+                      backgroundColor: '#1565c0',
+                    },
+                  }}
+                >
+                  Explore Alfred
+                </Fab>
+              </Card>
+            </Grid>
+            {/* Placeholder for future announcements */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  p: 2,
+                  textAlign: 'center',
+                  border: '1px dashed gray',
+                }}
+              >
+                <Typography variant="body2" color="text.secondary">
+                  New announcements coming soon!
+                </Typography>
+              </Box>
+            </Grid>
           </Grid>
         </Container>
       </Box>
