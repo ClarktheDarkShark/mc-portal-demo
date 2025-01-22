@@ -17,6 +17,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import EnterpriseAIRegistry from './pages/EnterpriseAIRegistry';
 import APIStore from './pages/APIStore';
+import Governance from './pages/GovernanceDashboard';
+import Standards from './pages/Standards';
+import DeveloperWorkspace from './pages/DeveloperWorkspace';
+import Analytics from './pages/Analytics';
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
           <Route path="/chat" element={<ChatGPTLike />} />
           <Route path="/imdf" element={<IMDFInfo />} />
           <Route path="/apistore" element={<APIStore />} />
+          <Route path="/governance" element={<Governance />} />
+          <Route path="/standards" element={<Standards />} />
+          <Route path="/developer-workspace" element={<DeveloperWorkspace />} />
+          <Route path="/analytics" element={<Analytics />} />
           {/* Add more routes as needed */}
         </Routes>
         <Footer />
