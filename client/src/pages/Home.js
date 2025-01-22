@@ -122,16 +122,6 @@ function Home() {
           border: '1px solid rgba(255, 255, 255, 0.2)',
         }}
       >
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
-          }}
-        />
         <Container
           maxWidth="md"
           sx={{
@@ -141,7 +131,7 @@ function Home() {
             padding: '2rem',
           }}
         >
-          <Typography
+          {/* <Typography
             variant="h2"
             gutterBottom
             sx={{
@@ -152,8 +142,8 @@ function Home() {
             }}
           >
             USMC Data & AI Portal
-          </Typography>
-          <Typography
+          </Typography> */}
+          {/* <Typography
             variant="h5"
             paragraph
             sx={{
@@ -165,7 +155,7 @@ function Home() {
           >
             Your centralized hub for data & AI policies, catalogues, and innovative
             solutions to empower the Marine Corps.
-          </Typography>
+          </Typography> */}
         </Container>
       </Box>
 
