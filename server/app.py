@@ -29,10 +29,13 @@ def wake_up_heroku_app():
     """
     Function to send a GET request to the Heroku app to wake it up.
     """
-    url = "https://mc-ai-agent-4181d506847b.herokuapp.com"
+    url1 = "https://mc-ai-agent-4181d506847b.herokuapp.com"
+    url2 = "https://alfred-demo-311fd5c8f0bf.herokuapp.com"
     try:
-        response = requests.get(url, timeout=10)
-        app.logger.info(f"Heroku app wake-up response: {response.status_code}")
+        response1 = requests.get(url1, timeout=10)
+        response2 = requests.get(url2, timeout=10)
+        app.logger.info(f"Heroku app wake-up response: {response1.status_code}")
+        app.logger.info(f"Heroku app wake-up response: {response2.status_code}")
     except requests.RequestException as e:
         app.logger.error(f"Error waking up Heroku app: {e}")
 
