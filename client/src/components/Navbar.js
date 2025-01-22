@@ -25,7 +25,7 @@ function Navbar() {
         </Button>
 
         {/* Centered Title */}
-        <Typography
+        {/* <Typography
           variant="h2"
           gutterBottom
           sx={{
@@ -38,7 +38,7 @@ function Navbar() {
           }}
         >
           USMC Data & AI Portal
-        </Typography>
+        </Typography> */}
 
         {/* Placeholder for other navbar content */}
         <Box sx={{ mr: 2 }}>

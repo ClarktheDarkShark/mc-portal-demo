@@ -117,7 +117,7 @@ function Home() {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           color: '#fff',
-          py: 18,
+          py: 30,
           textAlign: 'center',
           border: '1px solid rgba(255, 255, 255, 0.2)',
         }}
@@ -131,7 +131,7 @@ function Home() {
             padding: '2rem',
           }}
         >
-          {/* <Typography
+          <Typography
             variant="h2"
             gutterBottom
             sx={{
@@ -142,7 +142,7 @@ function Home() {
             }}
           >
             USMC Data & AI Portal
-          </Typography> */}
+          </Typography>
           {/* <Typography
             variant="h5"
             paragraph
